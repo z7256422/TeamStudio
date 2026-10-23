@@ -3,6 +3,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { spawnSync } = require('node:child_process');
 const { cleanPackages } = require('./clean-packages.cjs');
+const { runtimeFiles } = require('./packaging/runtime-files.cjs');
 
 const root = path.resolve(__dirname, '..');
 const templates = path.join(__dirname, 'packaging');
@@ -57,16 +58,10 @@ async function main() {
   }
   function copy(relative) { write(relative, fs.readFileSync(path.join(root, relative))); }
   // 分发采用白名单，不遍历用户工作区、历史数据库、凭据、测试输出与截图。
-  copy('work/agent-manager-server.cjs');
-  copy('work/server/provider-secrets.ps1');
-  for (const file of fs.readdirSync(path.join(root, 'work/server')).sort()) {
-    if (file.endsWith('.cjs') && !file.endsWith('.test.cjs')) copy(`work/server/${file}`);
+  for (const file of runtimeFiles(root))
+  {
+    copy(file);
   }
-  for (const file of ['run-activity.js', 'run-progress.js', 'run-reasoning.js', 'model-reasoning.js']) copy(`work/shared/${file}`);
-  copy('outputs/agent-manager.html');
-  copy('outputs/product-company.json');
-  copy('outputs/product-company-prompts.md');
-  copy('outputs/THIRD_PARTY_LICENSES.txt');
   for (const file of ['launcher.cjs', 'README.txt', 'Start.cmd', 'Stop.cmd']) {
     const contents = Buffer.from(fs.readFileSync(path.join(templates, file), 'utf8').replaceAll('{{VERSION}}', version), 'utf8');
     write(file, file.endsWith('.cmd') ? Buffer.from(contents.toString('utf8').replace(/\r?\n/g, '\r\n')) : contents);

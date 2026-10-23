@@ -11,6 +11,8 @@ node_modules/
 *.sqlite-shm
 *.zip
 *.zip.sha256
+*.tgz
+*.tgz.sha256
 
 # 本机配置与凭据不随源码上传
 .codex/

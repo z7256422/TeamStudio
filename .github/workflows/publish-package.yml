@@ -1,0 +1,74 @@
+name: Publish GitHub npm package
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '要发布的版本标签，例如 v0.15.0'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: npm-${{ github.event.release.tag_name || inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      REQUIRE_CODEX_TEST: '1'
+    steps:
+      - name: Checkout the release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+          persist-credentials: false
+      - name: Set up Node.js and GitHub Packages
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.15.0'
+          registry-url: https://npm.pkg.github.com
+          scope: '@z7256422'
+      - name: Check the release version
+        shell: pwsh
+        run: |
+          @'
+          const { version } = require('./work/server/app-info.cjs');
+          if (process.env.RELEASE_TAG !== 'v' + version)
+          {
+              throw new Error('版本标签与 app-info.cjs 不一致');
+          }
+          '@ | node -
+      - name: Install the tested Codex CLI
+        run: npm install --global @openai/codex@0.162.0 --registry=https://registry.npmjs.org
+      - name: Run all tests
+        run: npm test
+      - name: Build the offline panel
+        run: npm run build
+      - name: Export the built-in company template
+        run: node work/export-company.cjs
+      - name: Build the npm archive
+        run: npm run package:npm
+      - name: Publish to GitHub Packages
+        shell: pwsh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $archives = @(Get-ChildItem -LiteralPath dist/npm -File -Filter '*.tgz')
+          if ($archives.Count -ne 1)
+          {
+              throw '应当恰好生成一个 npm 安装包。'
+          }
+          npm publish $archives[0].FullName --registry=https://npm.pkg.github.com --access public --ignore-scripts
+          if ($LASTEXITCODE -ne 0)
+          {
+              exit $LASTEXITCODE
+          }

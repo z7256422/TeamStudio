@@ -5,7 +5,9 @@ const crypto = require('node:crypto');
 const { fork, spawn } = require('node:child_process');
 
 const root = __dirname;
-const stateDir = path.join(root, '.agent-manager');
+// npm 安装版将启动状态存入用户数据目录；便携版保留原目录行为。
+const stateDir = process.env.TEAM_STUDIO_LAUNCHER_STATE_DIR
+  ? path.resolve(process.env.TEAM_STUDIO_LAUNCHER_STATE_DIR) : path.join(root, '.agent-manager');
 const stateFile = path.join(stateDir, 'launcher.json');
 const identity = crypto.createHash('sha256').update(root.toLowerCase()).digest('hex').slice(0, 24);
 const pipeName = `\\\\.\\pipe\\team-studio-${identity}`;
@@ -120,7 +122,7 @@ async function start() {
     const onSignal = () => { void stop(); };
     process.on('SIGINT', onSignal);
     process.on('SIGTERM', onSignal);
-    console.log(`\nTeam Studio 已启动：${url}\n请保留此窗口。按 Ctrl+C 或双击 Stop.cmd 停止服务。\n`);
+    console.log(`\nTeam Studio 已启动：${url}\n请保留此窗口。按 Ctrl+C 停止服务。\n`);
     openBrowser(url);
     const result = await exited;
     process.removeListener('SIGINT', onSignal);
