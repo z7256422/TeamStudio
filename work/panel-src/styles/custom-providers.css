@@ -1,0 +1,396 @@
+.custom-providers
+{
+  margin: 0;
+  min-width: 0;
+}
+
+.custom-provider-list
+{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.custom-provider-card, .custom-provider-form
+{
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.custom-provider-card
+{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 0;
+  box-shadow: 0 2px 6px #25283103;
+}
+
+.custom-provider-card-heading
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-provider-symbol
+{
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.custom-provider-card-heading > div
+{
+  flex: 1;
+  min-width: 0;
+}
+
+.custom-provider-card-heading strong
+{
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.custom-provider-engine
+{
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.custom-provider-card-heading > .badge
+{
+  align-self: flex-start;
+  flex-shrink: 0;
+  font-size: 10px;
+  padding: 3px 6px;
+}
+
+.custom-provider-model
+{
+  margin: 20px 0 16px;
+}
+
+.custom-provider-model > span
+{
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.custom-provider-model code
+{
+  color: #454151;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.custom-provider-details
+{
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  font-size: 11px;
+}
+
+.custom-provider-details > div
+{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.custom-provider-details dt
+{
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.custom-provider-details dd
+{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.custom-provider-details dd svg
+{
+  color: var(--muted);
+}
+
+.custom-provider-readiness
+{
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 16px 0;
+  padding: 9px 10px;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.custom-provider-readiness svg
+{
+  margin-top: 2px;
+}
+
+.custom-provider-card-footer
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.custom-provider-endpoint
+{
+  min-width: 0;
+  font-size: 10px;
+  color: var(--muted);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.custom-provider-actions
+{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.custom-provider-actions .btn
+{
+  font-size: 11px;
+}
+
+.custom-provider-actions .icon-button:hover
+{
+  color: var(--red);
+  background: #fff0f1;
+}
+
+.custom-provider-empty
+{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  grid-column: 1 / -1;
+  padding: 28px;
+  border: 1px dashed #d9d4ed;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.custom-provider-empty p
+{
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.custom-provider-form
+{
+  padding: 24px;
+}
+
+.custom-provider-form-heading
+{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.custom-provider-form-heading p
+{
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.custom-provider-form-grid
+{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.custom-provider-group legend
+{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0 0 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.custom-provider-fields
+{
+  display: grid;
+  gap: 18px;
+}
+
+.custom-provider-fields label
+{
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.custom-provider-fields small
+{
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.custom-provider-auth-fields
+{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.custom-provider-fields .provider-enable
+{
+  flex-direction: row;
+  align-items: center;
+  padding-top: 2px;
+}
+
+.custom-provider-form-notes
+{
+  margin: 22px 0;
+  padding: 12px 14px;
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.custom-provider-form-notes p + p
+{
+  margin-top: 6px;
+}
+
+.custom-provider-form-footer
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.custom-provider-form-footer > small
+{
+  max-width: 330px;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.custom-provider-form-footer .history-actions, .provider-delete-confirmation .history-actions
+{
+  margin: 0;
+}
+
+.provider-test-success
+{
+  color: var(--green);
+  background: #eaf6f0;
+}
+
+.integrations-page .provider-delete-confirmation
+{
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 16px 0 0;
+}
+
+.provider-delete-confirmation .history-actions
+{
+  flex-shrink: 0;
+}
+
+@container (max-width: 1000px)
+{
+  .custom-provider-list
+  {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 680px)
+{
+  .custom-provider-list, .custom-provider-form-grid
+  {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px)
+{
+  .custom-provider-card
+  {
+    padding: 18px 18px 0;
+  }
+
+  .custom-provider-form
+  {
+    padding: 18px;
+  }
+
+  .custom-provider-form-heading
+  {
+    flex-wrap: wrap;
+  }
+
+  .custom-provider-auth-fields
+  {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .custom-provider-empty
+  {
+    align-items: flex-start;
+    padding: 20px;
+  }
+}

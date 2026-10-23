@@ -1,0 +1,58 @@
+.notification-anchor { position: relative; }
+.notification-trigger { position: relative; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 7px; color: var(--muted); }
+.notification-trigger:hover, .notification-trigger.has-notices { background: var(--accent-soft); color: var(--accent-text); }
+.notification-trigger > span { position: absolute; top: -3px; right: -6px; min-width: 15px; height: 15px; padding: 0 3px; border-radius: 10px; background: #ba5b46; color: white; font-size: 9px; line-height: 15px; }
+.notification-center { position: fixed; top: 56px; right: 24px; width: min(470px, calc(100vw - 24px)); max-height: calc(100dvh - 76px); z-index: 55; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 50px #25213626; }
+.notification-center > header { display: flex; align-items: center; justify-content: space-between; padding: 18px; border-bottom: 1px solid var(--line); }
+.notification-center h3 { margin: 0 0 6px; font-size: 15px; }
+.notification-center small { color: var(--muted); font-size: 10px; }
+.notification-list { padding: 0 16px 16px; overflow: auto; min-height: 0; }
+.notification-list h4 { font-size: 12px; margin: 18px 0 12px; }
+.notification-section { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 18px 0 12px; }
+.notification-section h4 { margin: 0; }
+.notification-section button { font-size: 10px; }
+.notification-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.notification-clear-feedback { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; margin-bottom: 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-text); font-size: 11px; }
+.notification-clear-feedback .text-button { padding: 0; font-size: 11px; }
+.notification-clear-hint { margin-top: 14px; color: var(--muted); font-size: 10px; line-height: 1.7; }
+.notification-preview { position: fixed; top: 66px; right: 24px; z-index: 54; width: min(360px, calc(100vw - 24px)); display: flex; align-items: flex-start; padding: 12px; background: #fff; border: 1px solid #d8d0ec; border-radius: 10px; box-shadow: 0 5px 20px #27203b15; }
+.notification-preview > button:first-child { text-align: left; flex: 1; min-width: 0; }
+.notification-preview b, .notification-preview span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.notification-preview b { font-size: 12px; margin-bottom: 7px; color: var(--accent-text); }
+.notification-preview span { font-size: 11px; color: var(--muted); }
+.delivery-notice { padding: 14px; border: 1px solid var(--line); border-left: 3px solid #59a887; border-radius: 8px; margin-bottom: 10px; overflow-wrap: anywhere; }
+.delivery-notice.is-read { border-left-color: var(--line); }
+.delivery-notice > div { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
+.delivery-notice > div > span { font-size: 10px; color: var(--muted); }
+.delivery-notice-heading { align-items: center; }
+.delivery-notice-heading > b { flex: 1; min-width: 0; }
+.delivery-notice-heading > span { white-space: nowrap; }
+.delivery-notice-heading > .icon-button { width: 24px; height: 24px; margin: -4px -4px -4px 0; flex-shrink: 0; }
+.delivery-notice p { font-size: 12px; line-height: 1.7; margin: 8px 0; }
+.delivery-notice-summary { color: var(--muted); max-height: 80px; overflow: auto; }
+.delivery-notice > button { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; margin-top: 10px; }
+.approval-card { border: 1px solid #e6d9b9; border-radius: 8px; padding: 13px; margin: 12px 0; background: #fffdf7; overflow-wrap: anywhere; }
+.approval-card header { display: flex; gap: 8px; font-size: 12px; align-items: flex-start; color: #866429; margin-bottom: 8px; }
+.approval-card header svg { flex-shrink: 0; }
+.approval-card > small { display: block; font-size: 10px; color: var(--muted); line-height: 1.7; }
+.approval-fields { margin: 12px 0; }
+.approval-fields dt { margin-top: 10px; font-size: 10px; color: #8b795c; }
+.approval-fields dd { margin: 4px 0 0; }
+.approval-fields pre { font-size: 11px; line-height: 1.65; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 180px; overflow: auto; }
+.approval-card footer { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.approval-card footer .btn { font-size: 11px; }
+@media (max-width: 760px) { .notification-center, .notification-preview { right: 12px; } .bar-actions { gap: 10px; } }
+
+/* 审批操作范围优先显示；差异默认折叠，长路径与窄屏不会撑开面板。 */
+.approval-file-change { border-top: 1px solid var(--line); padding: 10px 0; min-width: 0; overflow-wrap: anywhere; }
+.approval-file-change b { font-size: 12px; }
+.approval-file-change summary, .provider-diagnostics summary { cursor: pointer; font-size: 12px; margin: 8px 0; }
+.approval-file-change pre, .provider-diagnostics pre { max-height: 280px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+.provider-diagnostics { margin: 16px 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.provider-diagnostics.compact { margin: 8px 0; padding: 10px 12px; }
+.provider-diagnostics p { font-size: 12px; line-height: 1.6; }
+.provider-diagnostics h3 { font-size: 13px; }
+.provider-diagnostics .section-inline { gap: 12px; flex-wrap: wrap; }
+.provider-diagnostics .diagnostic-directory { display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:8px 0; }
+.diagnostic-directory span { color:var(--muted);flex-shrink:0; }
+.diagnostic-directory code { overflow-wrap:anywhere;min-width:0;font-size:12px; }

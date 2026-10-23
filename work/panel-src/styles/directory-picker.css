@@ -1,0 +1,22 @@
+.directory-input-row { display: flex; gap: 7px; min-width: 0; }
+.directory-input-row input { flex: 1; min-width: 0; }
+.directory-input-row .btn { flex: 0 0 auto; padding: 8px 10px; }
+.directory-dialog { width: 700px; }
+.directory-browser { padding: 18px 24px 10px; }
+.directory-address { display: flex; align-items: center; gap: 8px; }
+.directory-address input { flex: 1; min-width: 0; }
+.directory-shortcuts { display: flex; gap: 7px; flex-wrap: wrap; padding: 12px 0; }
+.directory-shortcuts button { padding: 5px 9px; font-size: 11px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.directory-entries { height: min(36vh, 310px); min-height: 150px; overflow: auto; margin-top: 10px; }
+.directory-entry { display: flex; align-items: center; width: 100%; gap: 10px; padding: 8px 10px; border-radius: 5px; min-height: 43px; text-align: left; }
+.directory-entry:hover { background: var(--surface); }
+.directory-entry.selected { background: var(--accent-soft); color: var(--accent-text); }
+.directory-entry > span { flex: 1; min-width: 0; }
+.directory-entry small { display: block; overflow-wrap: anywhere; color: var(--muted); margin-top: 4px; }
+.directory-entry-select { display: flex; gap: 10px; align-items: center; text-align: left; flex: 1; min-width: 0; padding: 0; }
+.directory-entry-select span { overflow-wrap: anywhere; }
+.directory-selection { border-top: 1px solid var(--line); padding: 10px 24px; font-size: 11px; }
+.directory-selection > span { color: var(--muted); }
+.directory-selection p { overflow-wrap: anywhere; margin-top: 4px; }
+.history-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+@media (max-width: 760px) { .directory-browser { padding: 14px; } .directory-selection { padding: 10px 14px; } .history-actions .btn { font-size: 10px; padding: 5px 7px; } }

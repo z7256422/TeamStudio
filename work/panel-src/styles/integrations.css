@@ -1,0 +1,388 @@
+/* 将模型连接和执行环境分别组织，容器宽度决定列数，兼容侧栏与浏览器缩放。 */
+.integrations-page
+{
+  padding: 32px 36px 40px;
+  background: #fafbfc;
+  scrollbar-gutter: stable;
+}
+
+.integrations-content
+{
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+.integrations-page .document-heading
+{
+  padding-bottom: 24px;
+}
+
+.integrations-title
+{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.integrations-mark, .team-connection-icon
+{
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #e5e0f8;
+  border-radius: 13px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.integrations-page .document-heading h2
+{
+  margin: 0 0 7px;
+  font-size: 24px;
+}
+
+.integrations-page .tabs
+{
+  margin-bottom: 24px;
+  gap: 30px;
+}
+
+.integrations-page .tabs button
+{
+  padding: 14px 0;
+  font-size: 12px;
+}
+
+.integration-section-heading h3
+{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.integrations-page .section-label
+{
+  margin-bottom: 18px;
+}
+
+.integrations-page .section-label p
+{
+  margin-top: 6px;
+}
+
+.integrations-detail-grid
+{
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
+  align-items: start;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.integration-panel, .integrations-sidebar .provider-diagnostics
+{
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.integrations-page .provider-table
+{
+  border: 0;
+  border-radius: 7px;
+}
+
+.integrations-page .table-labels, .integrations-page .provider-row
+{
+  grid-template-columns: minmax(0, 1fr) 76px 108px;
+  gap: 16px;
+  padding: 16px 12px;
+}
+
+.integrations-page .table-labels
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--surface);
+}
+
+.integrations-page .provider-kind, .integrations-page .table-labels > span:nth-child(2)
+{
+  display: block;
+}
+
+.integrations-page .provider-identity
+{
+  gap: 11px;
+  flex-wrap: wrap;
+}
+
+.integrations-page .provider-symbol
+{
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+}
+
+.integrations-page .provider-identity .item-copy
+{
+  flex-basis: 120px;
+}
+
+.integrations-page .provider-identity b
+{
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.integrations-page .default-badge
+{
+  display: inline-flex;
+  margin: 0;
+}
+
+.integrations-page .connection-state
+{
+  font-size: 11px;
+}
+
+.integrations-page .connection-footnote
+{
+  align-items: flex-start;
+  gap: 9px;
+  padding: 14px 2px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.integrations-page .connection-footnote svg
+{
+  margin-top: 3px;
+}
+
+.integrations-page .connection-footnote p
+{
+  margin: 0;
+  font-size: 11px;
+}
+
+.integrations-sidebar
+{
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.team-connection-icon
+{
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.team-connection-details
+{
+  display: grid;
+  gap: 13px;
+  margin: 0 0 20px;
+  font-size: 12px;
+}
+
+.team-connection-details > div
+{
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 12px;
+  line-height: 1.6;
+}
+
+.team-connection-details dt
+{
+  color: var(--muted);
+}
+
+.team-connection-details dd
+{
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.team-connection-directory
+{
+  font-size: 11px;
+}
+
+.team-connection > .btn
+{
+  width: 100%;
+  color: var(--accent-text);
+  border-color: #e1dcf3;
+  background: #fbfaff;
+}
+
+.integrations-sidebar .provider-diagnostics
+{
+  margin: 0;
+  padding: 20px 22px;
+}
+
+.integrations-sidebar .provider-diagnostics .section-label
+{
+  margin-bottom: 0;
+  align-items: flex-start;
+}
+
+.integrations-sidebar .provider-diagnostics .section-label > div
+{
+  flex: 1;
+  min-width: 0;
+}
+
+.integrations-sidebar .provider-diagnostics .section-label p
+{
+  margin-top: 10px;
+}
+
+.integrations-sidebar .diagnostic-directory
+{
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.integrations-page .catalog-toolbar
+{
+  padding-bottom: 20px;
+}
+
+.integrations-page .catalog-toolbar p
+{
+  margin-top: 6px;
+}
+
+.integrations-page .catalog-rows
+{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  border: 0;
+}
+
+.integrations-page .catalog-rows .data-row
+{
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.integrations-page .catalog-rows .item-copy b
+{
+  overflow-wrap: anywhere;
+}
+
+@container (max-width: 1000px)
+{
+  .integrations-detail-grid
+  {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .integrations-sidebar
+  {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+@container (max-width: 680px)
+{
+  .integrations-sidebar, .integrations-page .catalog-rows
+  {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .integrations-page .table-labels, .integrations-page .provider-row
+  {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    gap: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .integrations-page .table-labels
+  {
+    padding-left: 10px;
+  }
+
+  .integrations-page .provider-kind, .integrations-page .table-labels > span:nth-child(2)
+  {
+    display: none;
+  }
+
+  .integrations-page .catalog-toolbar
+  {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .integrations-page .catalog-toolbar .search-box
+  {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px)
+{
+  .integrations-page
+  {
+    padding: 24px 18px 32px;
+  }
+
+  .integrations-page .document-heading
+  {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .integrations-page .document-heading h2
+  {
+    font-size: 22px;
+  }
+
+  .integrations-title
+  {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .integrations-mark
+  {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .integrations-page .tabs
+  {
+    gap: 22px;
+  }
+
+  .integrations-page .tabs button
+  {
+    font-size: 11px;
+  }
+
+  .integration-panel, .integrations-sidebar .provider-diagnostics
+  {
+    padding: 18px;
+  }
+}

@@ -1,0 +1,24 @@
+/* 复用工作台浅紫色强调，以标题、分析阶段和正文区分层级。 */
+.execution-reasoning { min-width: 0; margin-top: 12px; border: 1px solid #e4dff2; border-radius: 8px; background: #fbfaff; overflow: hidden; }
+.reasoning-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; color: var(--accent-text); text-align: left; font-size: 12px; }
+.reasoning-toggle:hover { background: var(--accent-soft); }
+.reasoning-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.reasoning-toggle small { margin-left: auto; color: var(--muted); font-size: 10px; }
+.reasoning-toggle > svg { flex-shrink: 0; }
+.reasoning-toggle[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.reasoning-state { color: var(--muted); font-size: 11px; }
+.reasoning-indicator { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: #b5accd; }
+.is-streaming .reasoning-indicator { background: var(--accent); animation: reasoning-pulse 1.5s ease-in-out infinite; }
+.reasoning-body { max-height: 320px; overflow: auto; padding: 0 14px 8px; border-top: 1px solid #e9e3f5; scrollbar-gutter: stable; }
+.reasoning-body[hidden] { display: none; }
+.reasoning-note, .reasoning-empty { font-size: 11px; color: var(--muted); line-height: 1.7; }
+.reasoning-segment { margin: 14px 0 8px 3px; padding-left: 12px; border-left: 2px solid #e4dcf4; }
+.reasoning-segment > header { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; color: var(--muted); font-size: 10px; }
+.reasoning-segment > header b { color: var(--accent-text); }
+.reasoning-segment > header time { margin-left: auto; }
+.reasoning-segment > p { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; line-height: 1.8; margin: 8px 0; }
+.reasoning-segment > footer, .reasoning-last-update { color: var(--muted); font-size: 10px; line-height: 1.7; }
+.reasoning-last-update { padding: 0 12px 8px; }
+@keyframes reasoning-pulse { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .is-streaming .reasoning-indicator { animation: none; } }
+@media (max-width: 760px) { .reasoning-toggle { flex-wrap: wrap; gap: 6px; } .reasoning-body { max-height: 260px; padding-left: 10px; padding-right: 10px; } }

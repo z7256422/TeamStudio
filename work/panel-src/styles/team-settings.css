@@ -1,0 +1,114 @@
+/* 团队共享设置与成员配置来源保持相同的信息层级。 */
+.team-configuration-scope
+{
+  border: 1px solid #e3dcf3;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fcfbff;
+}
+.shared-setting-summary
+{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+.shared-setting-icon
+{
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.shared-setting-summary strong
+{
+  font-size: 13px;
+  font-weight: 500;
+}
+.shared-setting-summary p, .shared-setting-action p, .configuration-source-description p, .capability-description
+{
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.shared-setting-action
+{
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #eae5f4;
+}
+.shared-setting-action .btn
+{
+  max-width: 100%;
+  height: auto;
+  white-space: normal;
+  text-align: left;
+}
+.agent-configuration-source
+{
+  display: grid;
+  grid-template-columns: minmax(170px, 0.9fr) minmax(0, 1.1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  margin-bottom: 24px;
+  background: var(--surface);
+}
+.agent-configuration-source.inherited
+{
+  background: #fcfbff;
+  border-color: #e3dcf3;
+}
+.agent-configuration-source .field
+{
+  margin: 0;
+}
+.configuration-source-description .text-button
+{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 5px;
+}
+.capability-settings > .settings-section
+{
+  margin-top: 24px;
+}
+.capability-settings .section-inline
+{
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.capability-settings .capability-row
+{
+  min-width: 0;
+}
+.capability-settings .capability-row input, .capability-settings .capability-row svg
+{
+  flex-shrink: 0;
+}
+.capability-settings .capability-row span
+{
+  min-width: 0;
+}
+@media (max-width: 760px)
+{
+  .agent-configuration-source
+  {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 15px;
+  }
+  .team-configuration-scope
+  {
+    padding: 16px;
+  }
+}

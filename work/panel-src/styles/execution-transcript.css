@@ -1,0 +1,36 @@
+/* 正文穿插紧凑操作行；沿用工作台配色，终端详情独立滚动。 */
+.execution-transcript { width: calc(100% - 14px); max-width: 960px; min-width: 0; margin: 14px 0 0 14px; padding: 2px 0 6px 18px; border-left: 2px solid #e7e1f3; }
+.transcript-message { margin: 10px 0 16px; }
+.transcript-message:first-child { margin-top: 0; }
+.transcript-message-text { font-size: 13px; line-height: 1.85; white-space: pre-wrap; overflow-wrap: anywhere; }
+.transcript-message > footer { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 6px; font-size: 10px; color: var(--muted); }
+.transcript-operation, .transcript-command-group { min-width: 0; margin: 3px 0; }
+.transcript-operation > summary, .transcript-command-group > summary { display: flex; align-items: center; gap: 7px; width: fit-content; max-width: 100%; min-height: 30px; padding: 4px 2px; color: var(--muted); cursor: pointer; font-size: 12px; line-height: 1.6; list-style: none; }
+.transcript-operation > summary::-webkit-details-marker, .transcript-command-group > summary::-webkit-details-marker { display: none; }
+.transcript-operation > summary:hover, .transcript-command-group > summary:hover { color: var(--accent-text); }
+.transcript-operation > summary:focus-visible, .transcript-command-group > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.transcript-operation-label { flex-shrink: 0; }
+.transcript-operation-preview { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.transcript-operation[open] > summary > svg:last-child, .transcript-command-group[open] > summary > svg:last-child { transform: rotate(180deg); }
+.transcript-operation-state { flex-shrink: 0; font-size: 10px; }
+.transcript-operation-state.running { color: var(--accent-text); }
+.transcript-operation-state.failed, .transcript-operation-label.failed, .transcript-exit.failed { color: var(--red); }
+.transcript-operation-state.cancelled { color: var(--muted); }
+/* 命令组、组内命令和输出面板各自缩进一级，避免所有记录贴在同一条左边线上。 */
+.transcript-command-list { min-width: 0; margin: 4px 0 8px 7px; padding-left: 16px; border-left: 1px solid var(--line); }
+.transcript-operation-panel { margin: 6px 0 12px 21px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.transcript-operation-panel > header { padding: 9px 12px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; font-weight: 500; }
+.transcript-operation-output { max-height: 320px; overflow: auto; padding: 10px 12px 12px; background: var(--bg); scrollbar-gutter: stable; }
+.transcript-operation-output pre { margin: 0; font-family: "Cascadia Code", Consolas, "Microsoft YaHei", monospace; font-size: 12px; line-height: 1.75; white-space: pre; overflow-wrap: normal; }
+.transcript-operation-output code { font: inherit; }
+.transcript-operation-output .transcript-command { margin-bottom: 12px; }
+.transcript-operation-panel > footer { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; padding: 8px 12px; color: var(--muted); font-size: 10px; }
+.transcript-operation-times { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.transcript-exit { margin-left: auto; flex-shrink: 0; font-size: 11px; }
+@media (max-width: 760px) {
+  .execution-transcript { width: calc(100% - 8px); margin-left: 8px; padding-left: 12px; }
+  .transcript-command-list { margin-left: 5px; padding-left: 10px; }
+  .transcript-operation-panel { margin-left: 14px; }
+  .transcript-operation > summary, .transcript-command-group > summary { min-height: 36px; }
+  .transcript-operation-output { max-height: 260px; }
+}

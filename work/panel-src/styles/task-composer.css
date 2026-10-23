@@ -1,0 +1,41 @@
+/* 参考图只用于输入区排版，色板、圆角与基础控件沿用 Team Studio。 */
+.task-composer-area { flex-shrink: 0; padding-top: 12px; }
+.task-composer-context { display: flex; align-items: center; gap: 12px; min-height: 38px; padding: 5px 10px 7px; margin: 0 10px -1px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px 10px 0 0; }
+.task-directory-trigger { display: inline-flex; align-items: center; gap: 7px; min-width: 0; max-width: 65%; padding: 5px 8px; border-radius: 6px; color: var(--muted); font-size: 11px; }
+.task-directory-trigger > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.task-directory-trigger:hover:not(:disabled), .task-directory-trigger[aria-expanded=true] { color: var(--accent-text); background: var(--accent-soft); }
+.task-composer-team { display: flex; align-items: center; gap: 6px; margin-left: auto; min-width: 0; color: var(--muted); font-size: 10px; }
+.task-composer-team > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.task-compose-form { position: relative; }
+.task-compose-form textarea { display: block; }
+.task-compose-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; }
+.task-compose-permissions { display: flex; flex-wrap: wrap; gap: 6px 12px; min-width: 0; }
+.task-compose-setting { display: inline-flex; align-items: center; gap: 3px; min-width: 0; color: var(--muted); font-size: 11px; }
+.task-compose-setting select { width: auto; max-width: 145px; min-height: 30px; height: 30px; padding: 4px 5px; font-size: 11px; border-color: transparent; background: transparent; color: var(--text); }
+.task-compose-setting select:hover:not(:disabled) { background: var(--surface); }
+.task-compose-submit { display: flex; align-items: center; gap: 12px; min-width: 0; margin-left: auto; }
+.task-compose-model { max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; color: var(--muted); }
+.task-composer-area .composer-hint { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; text-align: left; padding: 0 2px; }
+.task-composer-area .composer-hint > span { margin-left: auto; }
+.task-directory-menu { position: fixed; z-index: 35; display: flex; flex-direction: column; padding: 8px; border: 1px solid var(--line); border-radius: 9px; background: var(--bg); color: var(--text); box-shadow: 0 8px 30px #302b4b14; overflow: auto; }
+.task-directory-search { display: flex; flex-shrink: 0; align-items: center; gap: 7px; padding: 2px 6px 8px; color: var(--muted); }
+.task-directory-search input { font-size: 12px; padding: 7px 8px; }
+.task-directory-options { min-height: 0; overflow: auto; }
+.task-directory-option { display: flex; align-items: center; gap: 9px; width: 100%; padding: 8px; border-radius: 6px; text-align: left; }
+.task-directory-option > span { min-width: 0; flex: 1; }
+.task-directory-option b, .task-directory-option small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.task-directory-option b { font-size: 12px; font-weight: 500; }
+.task-directory-option small { margin-top: 3px; font-size: 10px; color: var(--muted); }
+.task-directory-option:hover { background: var(--surface); }
+.task-directory-option[aria-pressed=true] { background: var(--accent-soft); color: var(--accent-text); }
+.task-directory-empty { padding: 12px 8px; color: var(--muted); font-size: 11px; }
+.task-directory-actions { flex-shrink: 0; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); }
+.task-directory-actions button { display: flex; align-items: center; gap: 9px; width: 100%; padding: 8px; border-radius: 6px; text-align: left; font-size: 11px; color: var(--muted); }
+.task-directory-actions button:hover { color: var(--accent-text); background: var(--accent-soft); }
+@media (max-width: 760px) {
+  .task-composer-context { margin-left: 6px; margin-right: 6px; padding-left: 5px; padding-right: 8px; }
+  .task-compose-toolbar { gap: 8px; }
+  .task-compose-permissions { gap: 4px; }
+  .task-compose-model { max-width: 130px; }
+  .task-composer-area .composer-hint > span { display: none; }
+}

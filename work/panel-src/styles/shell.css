@@ -1,0 +1,55 @@
+/* 应用骨架：固定导航、单层工具条和占满剩余空间的工作区。 */
+.studio-shell { display: grid; grid-template-columns: 216px minmax(0, 1fr); height: 100dvh; min-height: 480px; }
+.sidebar { background: #f7f8fa; border-right: 1px solid var(--line); padding: 28px 16px 16px; display: flex; flex-direction: column; min-height: 0; overflow-y: auto; }
+.brand { display: flex; align-items: center; gap: 10px; margin: 0 7px 30px; font-size: 17px; font-weight: 650; letter-spacing: -.45px; }
+.brand-symbol { display: grid; place-items: center; height: 35px; width: 35px; color: white; background: #303140; border-radius: 10px; }
+.brand small { display: block; color: #9396a3; font-size: 10px; font-weight: 400; letter-spacing: .55px; margin-top: 3px; }
+.workspace-select { padding: 0 4px 22px; }
+.workspace-select .eyebrow { margin: 0 4px 8px; }
+.workspace-select select { font-size: 12px; background: #fff; box-shadow: 0 2px 3px #25283103; }
+.nav-label { display: block; font-size: 11px; color: #9b9fac; margin: 28px 12px 10px; letter-spacing: .5px; }
+.nav-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px; text-align: left; font-size: 12px; color: #777d8c; border-radius: 6px; margin: 2px 0; }
+.nav-item > span:first-of-type { flex: 1; }
+.nav-item svg { color: #9499a8; }
+.nav-item:hover { background: #edecf2; }
+.nav-item.active { background: #eae7f6; color: var(--accent-text); font-weight: 600; }
+.nav-item.active svg { color: var(--accent-text); }
+.sidebar-bottom { margin-top: auto; padding-top: 34px; }
+.config-tools { display: flex; justify-content: space-between; padding: 0 6px 17px; }
+.config-tools button { display: flex; align-items: center; gap: 7px; color: #8b8f9c; font-size: 11px; padding: 4px 0; }
+.config-tools button:hover { color: var(--accent); }
+.runtime-status { display: flex; align-items: center; gap: 9px; border-top: 1px solid var(--line); padding: 19px 5px 0; width: 100%; text-align: left; }
+.runtime-status > span:nth-child(2) { flex: 1; font-size: 11px; color: #6c7382; }
+.runtime-status small { display: block; color: #a0a5b1; font-size: 10px; margin-top: 5px; }
+.runtime-status svg { color: #b0b3bc; }
+.studio-main { display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; background: white; }
+.workspace-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 62px; padding: 0 28px; border-bottom: 1px solid var(--line); flex: 0 0 auto; }
+.breadcrumbs { display: flex; align-items: center; gap: 14px; font-size: 11px; color: #a2a5b0; white-space: nowrap; }
+.breadcrumbs h1 { font-size: 12px; color: #505562; font-weight: 500; }
+.bar-actions { display: flex; align-items: center; gap: 18px; }
+.save-state { display: inline-flex; align-items: center; gap: 6px; color: #9397a3; font-size: 11px; white-space: nowrap; }
+.save-state i { width: 4px; height: 4px; border-radius: 50%; background: #acbbb6; }
+.save-state.dirty i { background: #c6a26a; }
+.page-stage { display: flex; flex-direction: column; flex: 1; min-height: 0; min-width: 0; overflow: hidden; }
+.mobile-menu, .nav-backdrop { display: none; }
+@media (max-width: 1100px) {
+  .studio-shell { grid-template-columns: 184px minmax(0,1fr); }
+  .sidebar { padding-left: 12px; padding-right: 12px; }
+  .brand { font-size: 15px; gap: 8px; margin-left: 0; margin-right: 0; }
+  .brand-symbol { width: 30px; height: 32px; }
+  .workspace-bar { padding: 0 20px; }
+}
+@media (max-width: 760px) {
+  .studio-shell { display: block; height: 100dvh; }
+  .studio-main { height: 100%; }
+  .sidebar { position: fixed; inset: 0 auto 0 0; width: 240px; z-index: 40; transform: translateX(-100%); visibility: hidden; transition: transform .18s; }
+  .sidebar.open { transform: translateX(0); visibility: visible; }
+  .nav-backdrop { display: block; position: fixed; inset: 0; z-index: 39; background: #20223750; }
+  .mobile-menu { display: inline-flex; }
+  .workspace-bar { min-height: 56px; padding: 0 12px; gap: 9px; }
+  .breadcrumbs { gap: 8px; flex: 1; }
+  .breadcrumbs > span, .breadcrumbs > svg { display: none; }
+  .save-state { display: none; }
+  .bar-actions { gap: 0; }
+  .notice { padding: 9px 14px; font-size: 11px; }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "team-studio",
+  "private": true,
+  "scripts": {
+    "start": "node work/agent-manager-server.cjs",
+    "build": "node work/build-panel.cjs",
+    "test": "node work/test.cjs",
+    "test:engine": "node --test work/server/engine-transport.test.cjs",
+    "package": "node work/package-portable.cjs"
+  },
+  "engines": { "node": ">=24" }
+}

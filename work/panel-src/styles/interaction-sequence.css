@@ -1,0 +1,81 @@
+/* 图形、筛选与详情独立滚动；参与者固定在图上方，宽团队可横向浏览。 */
+.sequence-dialog { width: min(1500px, calc(100vw - 40px)); max-width: none; height: min(920px, calc(100dvh - 40px)); max-height: none; padding: 0; }
+.sequence-dialog[open] { display: flex; flex-direction: column; }
+.sequence-dialog .dialog-top { padding: 18px 24px; flex: 0 0 auto; }
+.sequence-dialog .dialog-top > div { min-width: 0; }
+.sequence-dialog .dialog-top h3 { margin-top: 4px; }
+.sequence-dialog .dialog-top p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 75vw; margin: 7px 0 0; color: var(--muted); font-size: 11px; }
+.sequence-controls { padding: 12px 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+.sequence-controls label { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; }
+.sequence-controls select { width: auto; max-width: 190px; padding: 6px 26px 6px 9px; font-size: 11px; }
+.sequence-controls .sequence-detail-toggle { cursor: pointer; color: var(--text); }
+.sequence-detail-toggle input { accent-color: var(--accent); width: 14px; height: 14px; }
+.sequence-controls > button { margin-left: auto; }
+.sequence-legend { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 10px 24px; color: var(--muted); font-size: 10px; flex-shrink: 0; }
+.sequence-legend > span { display: flex; align-items: center; gap: 5px; }
+.sequence-legend i { width: 15px; height: 3px; background: var(--sequence-color); }
+.sequence-legend small { margin-left: auto; font-size: 10px; }
+.sequence-request, .sequence-dispatch { --sequence-color: #7961c7; }
+.sequence-result, .sequence-delivery { --sequence-color: #31846a; }
+.sequence-message { --sequence-color: #467bad; }
+.sequence-operation { --sequence-color: #a66c27; }
+.sequence-progress { --sequence-color: #777488; }
+.sequence-failure { --sequence-color: #c44753; }
+.sequence-error { margin: 0 24px 8px; }
+.sequence-coverage { margin: 0 24px 10px; color: var(--muted); font-size: 10px; flex-shrink: 0; }
+.sequence-coverage summary { cursor: pointer; }
+.sequence-coverage p { margin: 5px 0; }
+.sequence-body { display: flex; flex: 1; min-height: 0; border-top: 1px solid var(--line); }
+.sequence-scroll { flex: 1; min-width: 0; overflow: auto; overscroll-behavior: contain; background: #fdfdff; }
+.sequence-canvas { min-height: 100%; }
+.sequence-actor-header { position: sticky; top: 0; z-index: 1; background: #fdfdff; border-bottom: 1px solid var(--line); }
+.sequence-actor-header rect { fill: #f5f3fc; stroke: #e2dcef; }
+.sequence-actor-name { fill: var(--text); font-size: 12px; font-weight: 600; }
+.sequence-actor-role, .sequence-axis-label { fill: var(--muted); font-size: 10px; }
+.sequence-chart { display: block; }
+.sequence-lifeline { stroke: #d9d4e4; stroke-width: 1; stroke-dasharray: 4 5; }
+.sequence-event { cursor: pointer; outline: none; }
+.sequence-event-hit { fill: transparent; stroke: transparent; }
+.sequence-event:hover .sequence-event-hit { fill: #f0edfc99; }
+.sequence-event.selected .sequence-event-hit { fill: #eeebfaad; stroke: #d3c9ed; }
+.sequence-event:focus-visible .sequence-event-hit { stroke: var(--accent); stroke-width: 2; }
+.sequence-arrow, .sequence-arrow-head { fill: none; stroke: var(--sequence-color); stroke-width: 1.7; }
+.sequence-arrow.is-response { stroke-dasharray: 5 4; }
+.sequence-arrow-head { stroke-linejoin: round; }
+.sequence-event-title { fill: var(--sequence-color); font-size: 11px; font-weight: 600; }
+.sequence-event-preview { fill: var(--muted); font-size: 10px; }
+.sequence-event-round, .sequence-event-time { fill: var(--muted); font-size: 10px; }
+.sequence-details { flex: 0 0 304px; width: 304px; min-width: 0; overflow: auto; padding: 20px; border-left: 1px solid var(--line); background: #fff; overscroll-behavior: contain; }
+.sequence-details .empty-state { padding: 50px 0; }
+.sequence-detail-heading h4 { font-size: 15px; margin: 14px 0 7px; }
+.sequence-detail-heading > .badge { float: right; font-size: 10px; }
+.sequence-kind { color: var(--sequence-color); font-size: 11px; }
+.sequence-detail-heading p { font-size: 11px; overflow-wrap: anywhere; line-height: 1.8; }
+.sequence-detail-heading p > span { color: var(--muted); padding: 0 4px; }
+.sequence-details dl { padding: 14px 0; border-block: 1px solid var(--line); margin: 16px 0; font-size: 11px; }
+.sequence-details dt { color: var(--muted); margin-bottom: 5px; }
+.sequence-details dd { margin: 0 0 12px; overflow-wrap: anywhere; }
+.sequence-details dd:last-child { margin-bottom: 0; }
+.sequence-details h5 { margin: 18px 0 8px; font-size: 11px; }
+.sequence-details pre { font: inherit; font-size: 11px; line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; }
+.sequence-details ul { padding-left: 16px; font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+.sequence-detail-note { padding: 10px; margin-top: 16px; border-radius: 6px; background: var(--surface); color: var(--muted); font-size: 10px; line-height: 1.8; white-space: pre-wrap; }
+.sequence-source { margin-top: 18px; font-size: 10px; color: var(--muted); }
+.sequence-source summary { cursor: pointer; }
+.sequence-source p { overflow-wrap: anywhere; }
+.sequence-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 24px; border-top: 1px solid var(--line); font-size: 10px; color: var(--muted); flex-shrink: 0; }
+.sequence-footer > div { display: flex; gap: 10px; align-items: center; }
+@media (max-width: 900px) {
+  .sequence-dialog { width: calc(100vw - 20px); height: calc(100dvh - 20px); }
+  .sequence-dialog .dialog-top { padding: 12px 14px; }
+  .sequence-controls { padding: 10px 14px; gap: 8px 12px; }
+  .sequence-controls select { max-width: 132px; }
+  .sequence-legend { padding: 8px 14px; }
+  .sequence-coverage { margin-left: 14px; margin-right: 14px; }
+  .sequence-body { flex-direction: column; }
+  .sequence-scroll { min-height: 150px; }
+  .sequence-details { flex: 0 1 auto; width: 100%; max-height: 33vh; padding: 14px; border-left: 0; border-top: 1px solid var(--line); }
+  .sequence-details .empty-state { padding: 0; max-width: none; text-align: left; }
+  .sequence-details .empty-icon { display: none; }
+  .sequence-footer { flex-wrap: wrap; gap: 6px; padding: 8px 14px; }
+}

@@ -1,0 +1,57 @@
+.conversation-heading { display: flex; justify-content: space-between; gap: 20px; align-items: center; border-top: 1px solid var(--line); padding: 24px 0 15px; }
+.conversation-heading h3 { margin: 0 0 8px; }
+.conversation-heading p, .continuation-actions p { font-size: 11px; line-height: 1.7; color: var(--muted); margin: 0; }
+.conversation-round { padding: 14px 0 20px; border-bottom: 1px solid var(--line); }
+.conversation-round-meta { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 12px; }
+.conversation-user { background: var(--accent-soft); padding: 13px 16px; border-radius: 8px 8px 2px 8px; margin-left: 28px; }
+.conversation-user b { color: var(--accent-text); font-size: 11px; }
+.conversation-user p { margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.conversation-agent { padding: 18px 0 0; }
+.conversation-agent > pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.9; margin: 12px 0; }
+.conversation-user.pending { margin-top: 16px; opacity: .7; }
+.continuation-composer { padding-top: 22px; }
+.continuation-composer > label { display: block; margin-bottom: 10px; font-weight: 600; }
+.continuation-composer textarea { resize: vertical; min-height: 95px; }
+.continuation-actions { display: flex; justify-content: space-between; gap: 14px; margin-top: 12px; align-items: center; }
+.continuation-actions button { flex-shrink: 0; }
+/* 会话状态随标题展示，右侧操作统一复用描边按钮。 */
+.history-title-line { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.history-title-line h2 { margin: 0; }
+.history-metadata { margin-bottom: 20px; }
+.history-metadata summary { cursor: pointer; color: var(--muted); font-size: 11px; }
+.history-metadata dl { margin-top: 15px; }
+.conversation-config-note { color: var(--muted); font-size: 11px; line-height: 1.8; margin: 0 0 10px; }
+.history-sync-error, .task-running-label { margin: 0; padding: 8px 24px; font-size: 11px; }
+.task-history-picker { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
+.task-history-picker > svg { color: var(--muted); flex-shrink: 0; }
+.task-history-picker select { max-width: 580px; min-width: 0; font-size: 12px; }
+.task-history-picker .text-button { white-space: nowrap; }
+.conversation-toolbar.with-history { gap: 12px; border-bottom: 1px solid var(--line); padding: 12px 24px; }
+.task-run-conversation { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.task-run-conversation .conversation-heading { border-top: 0; padding: 20px 28px 8px; }
+.task-run-conversation .conversation-turns { flex: 1; min-height: 0; overflow: auto; padding: 0 28px 12px; }
+.task-run-conversation .continuation-composer { flex-shrink: 0; padding: 16px 28px 20px; border-top: 1px solid var(--line); background: #fff; }
+.task-run-conversation .continuation-composer textarea { max-height: 160px; }
+.restored-member { display: flex; align-items: center; gap: 10px; margin: 22px 0; }
+.restored-member small { display: block; margin-top: 6px; font-size: 11px; color: var(--muted); }
+.restored-inspector dl { margin: 0 0 18px; font-size: 11px; }
+.restored-inspector dt { color: var(--muted); margin: 14px 0 6px; }
+.restored-inspector dd { margin: 0; overflow-wrap: anywhere; line-height: 1.8; }
+.restored-config-hint { font-size: 11px; line-height: 1.8; color: var(--muted); margin: 0 0 12px; }
+.restored-inspector > .btn { margin: 6px 0 24px; }
+@media (max-width: 760px) {
+  .conversation-toolbar.with-history { padding: 10px 16px; }
+  .task-history-picker { gap: 6px; }
+  .task-history-picker > svg { display: none; }
+  .task-history-picker .text-button { font-size: 10px; }
+  .task-run-conversation .conversation-heading { padding: 12px 16px 6px; }
+  .task-run-conversation .conversation-turns { padding: 0 16px 12px; }
+  .task-run-conversation .continuation-composer { padding: 12px 16px; }
+  .task-run-conversation .continuation-composer > label { margin-bottom: 6px; }
+  .task-run-conversation .continuation-composer textarea { min-height: 66px; height: 66px; max-height: 100px; }
+  .task-run-conversation .continuation-actions { gap: 6px; margin-top: 8px; }
+  .reader-heading { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width:760px) { .conversation-user { margin-left: 12px; } .continuation-actions { align-items: stretch; flex-direction: column; } .continuation-actions button { align-self: flex-end; } }
+.team-delivery { margin: 10px 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow-wrap: anywhere; }
+.team-delivery p { margin: 8px 0; font-size: 13px; white-space: pre-wrap; }
